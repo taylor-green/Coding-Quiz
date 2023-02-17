@@ -1,6 +1,10 @@
-var timerTextEl = document.querySelector('h3');
-var timerCount = document.querySelector('.timer-count');
-var startButton = document.querySelector('#start-button');
+var question = document.querySelector('#question');
+var choices = document.querySelector('.choice-text');
+var scoreText = document.querySelector('#score');
+
+var currentQuestion={}
+var acceptedAnwer
+
 
 startButton.addEventListener('click',
     function () {
@@ -57,3 +61,4 @@ var btn = document.getElementById('btn');
 btn.addEventListener('click', function() {
 
 });
+
