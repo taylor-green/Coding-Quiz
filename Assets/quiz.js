@@ -1,6 +1,16 @@
 var question = document.querySelector('#question');
-var choices = document.querySelector('.choice-text');
+var btn1 = document.querySelector('#btn-1');
+var btn2 = document.querySelector('#btn-2');
+var btn3 = document.querySelector('#btn-3');
+var btn4 = document.querySelector('#btn-4');
 var scoreText = document.querySelector('#score');
+var choices = document.querySelector(".choice-container");
+var timerEl = document.querySelector('.timer');
+
+var questionsIndex = 0;
+var secondsLeft = 30;
+
+
 
 var currentQuestion = {}
 var acceptedAnswer = true
@@ -14,7 +24,7 @@ var questions =[
         choice2: '13',
         choice3: 'True',
         choice4: '0.4376',
-        answer: 1,
+        answer: 'Mike',
     },
     {
         question: 'What would be considered a boolean value?',
@@ -22,7 +32,7 @@ var questions =[
         choice2: 'False',
         choice3: 'Ozzy Osbourne',
         choice4: '0.00998',
-        answer: 2,
+        answer: 'False',
     },
     {
         question: 'What does DOM stand for?',
@@ -30,7 +40,7 @@ var questions =[
         choice2: 'Disable Object Model',
         choice3: 'Dads Offer Money',
         choice4: 'Document Object Model',
-        answer: 4,
+        answer: 'Document Object Model',
     },
     {
         question: 'Which of thes is a reference type?',
@@ -38,7 +48,7 @@ var questions =[
         choice2: 'Scope',
         choice3: 'An array',
         choice4: 'The DOM',
-        answer: 3,
+        answer: 'An array',
     },
     {
         question: 'When naming a variable, what cannnot be included?',
@@ -46,7 +56,7 @@ var questions =[
         choice2: 'Numbers',
         choice3: 'A space or hyphen',
         choice4: 'Lowercase letters',
-        answer: 3,
+        answer: 'A space or hyphen',
     }
 ]
 
@@ -55,66 +65,75 @@ const SCORE_POINTS = 100
 
 startQuiz = () => {
     score = 0
-    allQuestions = [...questions]
     getNewQuestion()
 
 }
 
+
 getNewQuestion = () => {
-    if(allQuestions.length === 0) {
+    if(questionsIndex === questions.length ) {
         localStorage.setItem('mostRecentScore', score)
 
         return window.location.assign('/end.html')
     }
 
-    var questionsIndex = Math.floor(Math.random() * allQuestions.length)
-    currentQuestion = allQuestions[questionsIndex]
-    question.innerText = currentQuestion.question
+    question.innerText = questions[questionsIndex].question
+    btn1.innerText = questions[questionsIndex].choice1
+    btn2.innerText = questions[questionsIndex].choice2
+    btn3.innerText = questions[questionsIndex].choice3
+    btn4.innerText = questions[questionsIndex].choice4
 
-    choices.forEach(choice => {
-        var number = choice.dataset['number']
-        choice.innerText = currentQuestion['choice' + number]
-    })
 
-    allQuestions.splice(questionsIndex, 1)
-
-    acceptedAnswer = true
 }
 
-choice.forEach(choice => {
-    choice.addEventListener('click', e => {
-        if(!acceptedAnswer) return
-
-        acceptedAnswer = false
-        var selectedChoice = e.target
-        var selectedAnswer = selectedChoice.dataset['number']
-
-        if (selectedAnswer === true){
-            incrementScore(SCORE_POINTS)
-        }
-    })
-
-})  
 
 
+function checkAnswer(answer){
+    if (answer===questions[questionsIndex].answer){
+        questionsIndex++ 
+        score++
+    getNewQuestion()
+    }
+    else { 
+        questionsIndex++
+        getNewQuestion()
+    }
 
-    // // function () {
-
-    //     var timeLeft = 30;
-
-    //     var timeInterval = setInterval(
-    //         function () {
-    //             if (timeLeft > 0) {
-    //                 timerCount.textContent = timeLeft;
-
-    //                 timeLeft--;
-    //                 console.log("hello");
-    //             } else {
-    //                 timerCount.textContent = timeLeft;
-    //                 clearInterval(timeInterval);
-    //             }
-
-    //         }, 1000)
-    // });
+}
+startQuiz()
 
 
+choices.addEventListener('click', ()=>{
+    var userInput = this.event.target.innerText
+    console.log(userInput)
+    checkAnswer(userInput)
+})
+
+
+
+
+
+
+// var timeLeft = 30;
+// var timeInterval = setInterval(function ());
+
+
+//     function () {
+
+//         timeLeft = 30;
+
+//         timeInterval = setInterval(
+//             function () {
+//                 if (timeLeft > 0) {
+//                     timerCount.textContent = timeLeft;
+
+//                     timeLeft--;
+//                     console.log("hello");
+//                 } else {
+//                     timerCount.textContent = timeLeft;
+//                     clearInterval(timeInterval);
+//                 }
+
+//             }, 1000)
+    
+//         });

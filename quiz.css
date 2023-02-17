@@ -8,35 +8,81 @@ body{
     padding: 10px;
 }
 
-.choice-container {
+
+
+button{
     display: flex;
     font-size: 22px;
+    width: 50%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: rgb(3, 125, 142);
+    min-width: 100px;
+}
+
+button:hover{
+    box-shadow:0 6px 11px 0 rgb(4, 117, 134);
+    cursor: pointer;
+    transition: transform 150ms;
+    background: linear-gradient(90deg, rgb(2, 79, 89) 0%, rgb(6, 165, 197) 100%);
+
+}
+
+#btn-1{
+    display: flex;
+    font-size: 22px;
+    padding: 20px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
     background: rgb(3, 125, 142);
     min-width: 600px;
-
-
-}
-
-.choice-container:hover{
-    box-shadow: 0 6px 11px 0 rgb(7, 169, 194);
-    cursor: pointer;
-    transition: transform 150ms;
-
-}   
-
-.choice-prefix{
-    padding: 10px 10px;
-    color:  black;
+    background: linear-gradient(90deg, rgb(6, 165, 197) 0%, rgb(2, 79, 89)100%);
 
 }
 
-.choice-text{
-    padding: 10px;
+
+#btn-2{
+    display: flex;
+    font-size: 22px;
+    padding: 20px;
     width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: rgb(3, 125, 142);
+    min-width: 600px;
+    background: linear-gradient(90deg, rgb(6, 165, 197) 0%, rgb(2, 79, 89)100%);
+
 }
+
+#btn-3{
+    display: flex;
+    font-size: 22px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: rgb(3, 125, 142);
+    min-width: 600px;
+    background: linear-gradient(90deg, rgb(6, 165, 197) 0%, rgb(2, 79, 89)100%);
+
+}
+
+#btn-4{
+    display: flex;
+    font-size: 22px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: rgb(3, 125, 142);
+    min-width: 600px;
+    background: linear-gradient(90deg, rgb(6, 165, 197) 0%, rgb(2, 79, 89)100%);
+
+    
+}
+
+
 
 /* Score display */
 #hud{
@@ -54,13 +100,27 @@ body{
 #score{
     margin-top:20px;
     align-items:flex-end;
-    color: rgb(210, 206, 206);   
+    color: rgb(0, 0, 0);   
 
 }
 
 .hud-prefix{
     font-size: 20px;
     margin-top: 50px;
-    color: rgb(210, 206, 206);   
+    color: rgb(0, 0, 0);   
+
+}
+
+.timer-count{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+
+}
+
+ h3{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
 
 }
