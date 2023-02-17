@@ -2,8 +2,54 @@ var question = document.querySelector('#question');
 var choices = document.querySelector('.choice-text');
 var scoreText = document.querySelector('#score');
 
-var currentQuestion={}
-var acceptedAnwer
+var currentQuestion = {}
+var acceptedAnswer = true
+var score = 0
+var questionCounter = 0
+var allQuestions =[]
+
+var questions =[
+    {
+        question: 'Which of these is a string?',
+        choice1: "'Mike'",
+        choice2: '13',
+        choice3: 'True',
+        choice4: '0.4376',
+        answer: 1,
+    },
+    {
+        question: 'What would be considered a boolean value?',
+        choice1: 'A ghost',
+        choice2: 'False',
+        choice3: 'Ozzy Osbourne',
+        choice4: '0.00998',
+        answer: 2,
+    },
+    {
+        question: 'What does DOM stand for?',
+        choice1: 'Document Orientation Movement',
+        choice2: 'Disable Object Model',
+        choice3: 'Dads Offer Money',
+        choice4: 'Document Object Model',
+        answer: 4,
+    },
+    {
+        question: 'Which of thes is a reference type?',
+        choice1: 'An applications rules',
+        choice2: 'Scope',
+        choice3: 'An array',
+        choice4: 'The DOM',
+        answer: 3,
+    },
+    {
+        question: 'When naming a variable, what cannnot be included?',
+        choice1: 'Uppercase letters',
+        choice2: 'Numbers',
+        choice3: 'A space or hyphen',
+        choice4: 'Lowercase letters',
+        answer: 3,
+    }
+]
 
 
 startButton.addEventListener('click',
