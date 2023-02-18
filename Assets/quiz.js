@@ -12,6 +12,9 @@ var secondsLeft = 30;
 
 
 
+
+
+
 var currentQuestion = {}
 var acceptedAnswer = true
 var score = 0
@@ -60,7 +63,7 @@ var questions =[
     }
 ]
 
-const SCORE_POINTS = 100
+
 
 
 startQuiz = () => {
@@ -74,7 +77,7 @@ getNewQuestion = () => {
     if(questionsIndex === questions.length ) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('/end.html')
+        return window.location.assign('/highscores.html')
     }
 
     question.innerText = questions[questionsIndex].question
@@ -91,7 +94,7 @@ getNewQuestion = () => {
 function checkAnswer(answer){
     if (answer===questions[questionsIndex].answer){
         questionsIndex++ 
-        score++
+        document.getElementById('score').innerHTML = score+= 20;
     getNewQuestion()
     }
     else { 
@@ -137,3 +140,5 @@ choices.addEventListener('click', ()=>{
 //             }, 1000)
     
 //         });
+
+
