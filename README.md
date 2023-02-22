@@ -28,7 +28,7 @@ User hit the start button and the quiz will begin.
 ## Mock-Up
 
 
-![The following image shows the web application's appearance and functionality:](./Assets/coding.quiz.png)
+<!-- ![The following image shows the web application's appearance and functionality:](./Assets/coding.quiz.png) -->
 
 
 The user can click the "Start Quiz" button to play the quiz game
