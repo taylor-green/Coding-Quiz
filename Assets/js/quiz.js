@@ -105,19 +105,21 @@ getNewQuestion = () => {
 }
 
 function checkAnswer(answer){
-    if (answer === questions[questionsIndex].answer) {
-        questionsIndex++;
-        score += 20;
-        scoreText.innerText = 'Score: ' + score;
-        getNewQuestion();
+    if (answer===questions[questionsIndex].answer){
+        questionsIndex++ 
+        document.getElementById('score').innerHTML = score+= 20;
+    getNewQuestion()
     }
-    else {
-        questionsIndex++;
-        getNewQuestion();
+    else { 
+        questionsIndex++
+        getNewQuestion()
     }
+
 }
 
 startQuiz()
+
+
 
 
 choices.addEventListener('click', ()=>{
@@ -134,7 +136,16 @@ incrementScore =() => {
     score
 }
 
-var mostRecentScore = localStorage.getItem('mostRecentScore');
-var finalScore = document.getElementById('final-score');
-finalScore.textContent = 'Your Score: ' + mostRecentScore;
+// var mostRecentScore = localStorage.getItem('mostRecentScore');
+// var finalScore = document.getElementById('final-score');
+// finalScore.textContent = 'Your Score:' + mostRecentScore;
+
+
+
+
+
+
+
+
+
 
