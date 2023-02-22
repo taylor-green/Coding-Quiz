@@ -7,6 +7,7 @@ var scoreText = document.querySelector('#score');
 var choices = document.querySelector(".choice-container");
 var timerEl = document.querySelector('.timer');
 
+
 var questionsIndex = 0;
 var secondsLeft = 30;
 
@@ -27,7 +28,7 @@ var questions =[
         choice2: '13',
         choice3: 'True',
         choice4: '0.4376',
-        answer: 'Mike',
+        answer: "'Mike'",
     },
     {
         question: 'What would be considered a boolean value?',
@@ -41,7 +42,7 @@ var questions =[
         question: 'What does DOM stand for?',
         choice1: 'Document Orientation Movement',
         choice2: 'Disable Object Model',
-        choice3: 'Dads Offer Money',
+        choice3: 'Dominant Orientation Model',
         choice4: 'Document Object Model',
         answer: 'Document Object Model',
     },
@@ -68,16 +69,30 @@ var questions =[
 
 startQuiz = () => {
     score = 0
+    secondsLeft = 30
+    scoreText.innerText = 'Score: ' + score;
     getNewQuestion()
 
 }
+// start the timer
+var timerInterval = setInterval(function() {
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      localStorage.setItem('mostRecentScore', score);
+      return window.location.assign('/highscores.html');
+    }
+
+    secondsLeft--;
+    timerEl.textContent = "Time left: " + secondsLeft;
+  }, 1000);
+
 
 
 getNewQuestion = () => {
     if(questionsIndex === questions.length ) {
-        localStorage.setItem('mostRecentScore', score)
+        localStorage.setItem('mostRecentScore', score);
 
-        return window.location.assign('/highscores.html')
+        return window.location.assign('/highscores.html');
     }
 
     question.innerText = questions[questionsIndex].question
@@ -89,20 +104,19 @@ getNewQuestion = () => {
 
 }
 
-
-
 function checkAnswer(answer){
-    if (answer===questions[questionsIndex].answer){
-        questionsIndex++ 
-        document.getElementById('score').innerHTML = score+= 20;
-    getNewQuestion()
+    if (answer === questions[questionsIndex].answer) {
+        questionsIndex++;
+        score += 20;
+        scoreText.innerText = 'Score: ' + score;
+        getNewQuestion();
     }
-    else { 
-        questionsIndex++
-        getNewQuestion()
+    else {
+        questionsIndex++;
+        getNewQuestion();
     }
-
 }
+
 startQuiz()
 
 
@@ -112,33 +126,15 @@ choices.addEventListener('click', ()=>{
     checkAnswer(userInput)
 })
 
+var submit = document.querySelector('#btn-submit');
+var finalScore = document.querySelector('#score')
 
 
+incrementScore =() => {
+    score
+}
 
-
-
-// var timeLeft = 30;
-// var timeInterval = setInterval(function ());
-
-
-//     function () {
-
-//         timeLeft = 30;
-
-//         timeInterval = setInterval(
-//             function () {
-//                 if (timeLeft > 0) {
-//                     timerCount.textContent = timeLeft;
-
-//                     timeLeft--;
-//                     console.log("hello");
-//                 } else {
-//                     timerCount.textContent = timeLeft;
-//                     clearInterval(timeInterval);
-//                 }
-
-//             }, 1000)
-    
-//         });
-
+var mostRecentScore = localStorage.getItem('mostRecentScore');
+var finalScore = document.getElementById('final-score');
+finalScore.textContent = 'Your Score: ' + mostRecentScore;
 
