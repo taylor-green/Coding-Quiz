@@ -79,7 +79,7 @@ var timerInterval = setInterval(function() {
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       localStorage.setItem('mostRecentScore', score);
-      return window.location.assign('/highscores.html');
+      return window.location.assign('highscores.html');
     }
 
     secondsLeft--;
