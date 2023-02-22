@@ -31,7 +31,6 @@ User hit the start button and the quiz will begin.
 ![The following image shows the web application's appearance and functionality:](Assets/coding.quiz.png)
 
 
-
 The user can click the "Start Quiz" button to play the quiz game
 The webpage can be found at 
 https://taylor-green.github.io/Password-Generator/
